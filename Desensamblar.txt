@@ -1,0 +1,3 @@
+gcc -g -c hola.c
+
+objdump --no-show-raw-insn -d -S -M intel hola.o > hola.asm

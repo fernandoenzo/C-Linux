@@ -2,6 +2,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
  * Obtiene un caracter del teclado sin imprimirlo a pantalla.
@@ -33,4 +34,14 @@ char getch(void) {
 	t.c_lflag |= ECHO;
 	tcsetattr(0, TCSANOW, &t);
 	return c;
+}
+
+/*
+ * Codifica la terminal de Windows (CMD) para que funcione en UTF-8.
+ * ¡Ojo! También hay que cambiar la fuente de la terminal a Lucida Console para que funcione
+ */
+
+void utf8(void){
+	system("chcp 65001");
+	system("cls");
 }
